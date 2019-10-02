@@ -2,7 +2,7 @@
 # Deepcon implementation from Badri Adhikari @ Deepcon-Cov
 # ROPE reimplementation from Respre 
 # Deepcon-pre Nachammai Palaniappan, 07-15-2019 
-# Added reshaping of 4D output from cov21stats to 2D input to ROPE
+# Added reshaping of 4D output from cov21stats to 2D input to ROPE function
 ################################################################################
 from keras.layers import *
 from keras.models import Model
