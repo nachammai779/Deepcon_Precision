@@ -1,9 +1,9 @@
-!/usr/bin/python
-# Deepcon implementation from Badri Adhikari @ Deepcon-Cov
-# ROPE reimplementation from Respre 
-# Deepcon-pre Nachammai Palaniappan, 07-15-2019 
-# Added reshaping of 4D output from cov21stats to 2D input to ROPE function
-################################################################################
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[37]:
+
+
 from keras.layers import *
 from keras.models import Model
 import os, sys, datetime
@@ -14,13 +14,18 @@ import argparse
 import scipy.linalg as la 
 import numpy.linalg as na
 global L, zd, ze, zg, zh, zi
-#################################################################################
+
+
+# In[38]:
+
 
 n_channels = 441
 pathname = os.path.dirname(sys.argv[0])
 model_weights_file_name = pathname + '\weights-rdd-covariance.hdf5'
 
-#################################################################################
+
+# In[39]:
+
 
 def aanum(ch):
     aacvs = [999, 0, 3, 4, 3, 6, 13, 7, 8, 9, 21, 11, 10, 12, 2,
@@ -29,8 +34,9 @@ def aanum(ch):
         return aacvs[ord(ch) & 31]
     return 20
 
-#################################################################################
-# Reimplementation of ROPE from Respre
+
+# In[40]:
+
 
 def ROPE(S, rho):
     p=S.shape[0]
@@ -51,7 +57,10 @@ def ROPE(S, rho):
     hattheta=np.dot(hattheta,M[:,indexlamda].transpose())
     return hattheta
 
-###########################################################################
+
+# In[41]:
+
+
 # Python reimplementation of the original code by David Jones @ UCL
 def cov21stats(file_aln):
     global L, zd, ze, zg, zh, zi
@@ -128,7 +137,8 @@ def cov21stats(file_aln):
     return final4d
 
 
-###########################################################################
+# In[42]:
+
 
 def main(aln, file_rr):
     print("Start " + str(sys.argv[0]) + " - " + str(datetime.datetime.now()))
@@ -218,8 +228,11 @@ def main(aln, file_rr):
     rr.close()
     print("Done " + str(sys.argv[0]) + " - " + str(datetime.datetime.now()))
 
-#################################################################################
+
+# In[43]:
+
 
 aln = r'C:\Users\Nachammai\Desktop\Thesis\16pkA0.aln.txt'
 file_rr = r'C:\Users\Nachammai\Desktop\Thesis\deepcon_pre_op_0919.txt'
 main(aln,file_rr)
+
