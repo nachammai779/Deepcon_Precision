@@ -5,4 +5,6 @@ Trained and Validated using the 3456 proteins in the DeepCov dataset with the pr
 ### Predict
 ```bash
 python ../deepcon-precision.py --aln ./16pkA0.aln --rr ./16pkA0.rr
+### Evaluate
+```bash
 ./coneva-lite.pl -pdb ./16pkA.pdb -rr ./16pkA0.rr
