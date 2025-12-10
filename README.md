@@ -11,3 +11,5 @@ python ../deepcon-precision.py --aln ./16pkA0.aln --rr ./16pkA0.rr
 ```bash
 ./coneva-lite.pl -pdb ./16pkA.pdb -rr ./16pkA0.rr
 ```
+#### Weights
+hdf5 Weights file is attached in release version 1.0
